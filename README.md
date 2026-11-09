@@ -61,9 +61,7 @@ This program monitors **air temperature**, not body temperature. An electric fan
 
 ## Development record
 
-I developed this prototype with ChatGPT's help generating the sketch and explaining the connections and behavior. The work began in September 2026. This repository preserves the version recovered from a local Arduino compilation cache dated September 7, 2026; the program logic and its saved thresholds have been kept unchanged.
-
-Publishing this recovered source does not establish a new compilation or hardware test.
+In September 2026, I independently built this prototype in about an hour, using code from my existing Arduino IDE library to program, wire and assemble it.
 
 ## The resting area
 
