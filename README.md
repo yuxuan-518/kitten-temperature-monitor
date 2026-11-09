@@ -2,13 +2,13 @@
 
 **English** | [简体中文](README.zh-CN.md)
 
-An ESP32 prototype for monitoring the air temperature and humidity around a kitten's resting area. A two-line LCD shows the readings, while an LED and buzzer provide feedback when the temperature moves outside the configured range.
+An ESP32 prototype for monitoring the air temperature and humidity around a kitten's resting area. A two-line LCD shows the readings, while an LED and buzzer provide feedback when the temperature moves outside the configured range. The physical setup also includes an electric fan for ventilation around the resting area.
 
 [Open the Arduino sketch](firmware/KittenMonitor/KittenMonitor.ino) · [Project photos](assets/)
 
 <img src="assets/prototype-overview.jpg" alt="Prototype enclosure with ESP32, breadboard wiring, LCD and external power hardware on the yellow lid" width="560">
 
-*The assembled prototype and its monitoring electronics.*
+*The assembled prototype with its monitoring electronics and ventilation fan.*
 
 ## What it does
 
@@ -57,7 +57,7 @@ The preserved sketch sets `MIN_TEMP = 27.0` and `MAX_TEMP = 31.0`. It alerts bel
 
 The display photograph shows `26.7°C`, `60%` and `OK`. The preserved sketch would show `COLD` below 27°C, so the photo and saved source reflect different threshold settings. The saved source has not been changed to match the photograph.
 
-This program monitors **air temperature**, not body temperature, and does not control a heater or fan. On a DHT read failure, it displays an error and turns off the LED and buzzer. It uses blocking delays and has no data logging, network connection, or independent protective control.
+This program monitors **air temperature**, not body temperature. An electric fan was added to the physical setup for ventilation; the preserved sketch contains no fan or heater control logic. On a DHT read failure, it displays an error and turns off the LED and buzzer. It uses blocking delays and has no data logging, network connection, or independent protective control.
 
 ## Development record
 
