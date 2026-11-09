@@ -6,6 +6,10 @@ An ESP32 prototype for monitoring the air temperature and humidity around a kitt
 
 [Open the Arduino sketch](firmware/KittenMonitor/KittenMonitor.ino) · [Project photos](assets/)
 
+<img src="assets/prototype-overview.jpg" alt="Prototype enclosure with ESP32, breadboard wiring, LCD and external power hardware on the yellow lid" width="560">
+
+*The assembled prototype and its monitoring electronics.*
+
 ## What it does
 
 - Reads temperature and humidity from a DHT11 sensor.
@@ -15,6 +19,16 @@ An ESP32 prototype for monitoring the air temperature and humidity around a kitt
 - Shows `DHT11 ERROR` and `Check wiring` when a sensor read fails.
 
 The display is an **LCD1602 with a PCF8574 I²C backpack**, rather than an OLED. Humidity is displayed but does not trigger an alarm.
+
+## Display and sensor placement
+
+<img src="assets/lcd-readout.jpg" alt="LCD1602 close-up displaying Temp 26.7 C and Hum 60 percent OK beside the breadboard" width="500">
+
+*LCD close-up showing air temperature, relative humidity and the displayed status.*
+
+<img src="assets/sensor-placement.jpg" alt="DHT11 suspended inside the enclosure above the kittens' bedding" width="400">
+
+*The DHT11 positioned inside the resting enclosure, above the bedding.*
 
 ## Hardware and signal pins
 
@@ -41,14 +55,20 @@ The sketch uses `hd44780_I2Cexp` to identify the LCD's I²C address and backpack
 
 The preserved sketch sets `MIN_TEMP = 27.0` and `MAX_TEMP = 31.0`. It alerts below 27°C or above 31°C; the boundary values themselves remain in the `OK` state. These are historical project settings, not a universal recommended temperature range for kittens.
 
+The display photograph shows `26.7°C`, `60%` and `OK`. The preserved sketch would show `COLD` below 27°C, so the photo and saved source reflect different threshold settings. The saved source has not been changed to match the photograph.
+
 This program monitors **air temperature**, not body temperature, and does not control a heater or fan. On a DHT read failure, it displays an error and turns off the LED and buzzer. It uses blocking delays and has no data logging, network connection, or independent protective control.
 
 ## Development record
 
 I developed this prototype with ChatGPT's help generating the sketch and explaining the connections and behavior. The work began in September 2026. This repository preserves the version recovered from a local Arduino compilation cache dated September 7, 2026; the program logic and its saved thresholds have been kept unchanged.
 
-Publishing this recovered source does not establish a new compilation or hardware test. Project photos and demonstration material will be added later.
+Publishing this recovered source does not establish a new compilation or hardware test.
 
-## Adding photos
+## The resting area
 
-Upload photos to [`assets/`](assets/). A future README image can use a relative link such as `![Assembled prototype](assets/prototype.jpg)` once that file exists. The folder currently contains upload guidance and no project photos.
+<img src="assets/kittens-resting.jpg" alt="Two young kittens resting together on blankets inside the enclosure" width="560">
+
+*The kittens resting in the area whose surrounding air the prototype was built to monitor.*
+
+The photos show the physical prototype and its context. The complete image files are in [`assets/`](assets/).
